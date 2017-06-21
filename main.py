@@ -7,4 +7,10 @@ import yaml
 with open('../config.yaml', 'r') as stream:
     configuration = yaml.load(stream)
 
-url = configuration['protocol'] + '://' + configuration['hostname'] + '/#map='
+url = (
+    configuration['protocol'] +
+    '://' +
+    configuration['hostname'] +
+    configuration['port'] +
+    '/#map='
+)
