@@ -8,8 +8,14 @@ from test_cases.test_cases import valid_case
 
 
 @pytest.fixture(scope='function')
-def response():
-    response = requests.get(url)
+def case(request):
+    case = valid_case
+    return case
+
+
+@pytest.fixture(scope='function')
+def response(case):
+    response = requests.get(url + case.parameters)
     yield response
 
 
@@ -26,9 +32,3 @@ def headers(response):
 @pytest.fixture(scope='function')
 def body(response):
     yield response.text
-
-
-@pytest.fixture(scope='function')
-def case(request):
-    case = valid_case
-    return case
