@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
 
 
-def test_status_code(body, case):
+def test_body(body, case):
     assert body == case.expected_body
