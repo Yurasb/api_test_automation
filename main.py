@@ -12,4 +12,6 @@ url = configuration['protocol'] +\
       configuration['hostname'] +\
       ':' +\
       configuration['port'] +\
-      '/#map='
+      '/api/' + \
+      configuration['api_version'] + \
+      '/map?bbox='
