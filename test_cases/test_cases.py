@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from StringIO import StringIO
 
 
 class Case(object):
