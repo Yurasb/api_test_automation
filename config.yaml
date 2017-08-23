@@ -1,3 +1,4 @@
 protocol: http
 hostname: geojson.io
+api_version: '0.6'
 port: '80'
