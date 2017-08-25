@@ -4,13 +4,19 @@
 import pytest
 import requests
 from main import url
-from test_cases.test_cases import valid_case
+from test_cases.test_cases import valid_case, invalid_case_1
 
 
 @pytest.fixture(scope='function')
 def case(request):
     case = valid_case
     return case
+
+
+@pytest.fixture(scope='function')
+def invalid_case(request):
+    invalid_case = invalid_case_1
+    return invalid_case
 
 
 @pytest.fixture(scope='function')

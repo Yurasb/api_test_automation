@@ -12,7 +12,9 @@ class Case(object):
 
 
 valid_case = Case(
-    parameters=u'18/52.52060/31.18780',
+    parameters=u'/map?bbox='
+               u'27.61649608612061,53.85379229563698,'
+               u'27.671985626220707,53.886459293813054',
     status_code=200,
     headers={
         'X-GitHub-Request-Id': '8336:3EF8:23C1B80:32B2853:594AC437',
