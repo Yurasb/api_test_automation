@@ -140,7 +140,7 @@ invalid_case_1 = Case(
 )
 
 invalid_case_2 = Case(
-    parameters=u'map?bbox=27.,53.85379229563698,'
+    parameters=u'/map?bbox=27.,53.85379229563698,'
                u'27.671985626220707,53.886459293813054',
     status_code=400,
     headers={
@@ -159,7 +159,7 @@ invalid_case_2 = Case(
 )
 
 invalid_case_3 = Case(
-    parameters=u'map?bbox='
+    parameters=u'/map?bbox='
                u'100.61649608612061,53.85379229563698,'
                u'27.671985626220707,53.886459293813054',
     status_code=400,
@@ -178,9 +178,9 @@ invalid_case_3 = Case(
 )
 
 invalid_case_4 = Case(
-    parameters=u'map?bbox='
+    parameters=u'/map?bbox='
                u'27.61649608612061,53.85379229563698,'
-               u'27.671985626220707,53.886459293813054',
+               u'27.671985626220707,52.886459293813054',
     status_code=400,
     headers={
         'Content-Length': '118',
@@ -229,3 +229,9 @@ invalid_case_5 = Case(
          '</body>\n'
          '</html>\n'
 )
+
+test_cases = [valid_case, invalid_case_1, invalid_case_2, invalid_case_3, invalid_case_4, invalid_case_5]
+
+
+def get_case(index):
+    return test_cases[index]

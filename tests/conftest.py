@@ -3,20 +3,15 @@
 
 import pytest
 import requests
+
 from main import url
-from test_cases.test_cases import valid_case, invalid_case_1
+from test_cases.test_cases import get_case
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='function', params=range(6))
 def case(request):
-    case = valid_case
+    case = get_case(request.param)
     return case
-
-
-@pytest.fixture(scope='function')
-def invalid_case(request):
-    invalid_case = invalid_case_1
-    return invalid_case
 
 
 @pytest.fixture(scope='function')
@@ -37,4 +32,4 @@ def headers(response):
 
 @pytest.fixture(scope='function')
 def body(response):
-    yield response.text
+    yield response.content
