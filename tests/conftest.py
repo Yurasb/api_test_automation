@@ -33,3 +33,8 @@ def headers(response):
 @pytest.fixture(scope='function')
 def body(response):
     yield response.content
+
+
+@pytest.fixture(scope='function')
+def encoding(response):
+    yield response.encoding
