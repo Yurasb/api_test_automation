@@ -46,6 +46,7 @@ def doc(response):
     yield doc
 
 
+@pytest.fixture(scope='function')
 def body(response):
     yield response.content
 
