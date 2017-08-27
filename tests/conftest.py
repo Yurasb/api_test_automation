@@ -3,6 +3,8 @@
 
 import pytest
 import requests
+from StringIO import StringIO
+from lxml import etree
 
 from main import url
 from test_cases.test_cases import get_case
@@ -16,7 +18,7 @@ def case(request):
 
 @pytest.fixture(scope='function')
 def response(case):
-    response = requests.get(url + case.url_parametes)
+    response = requests.get(url + case.url_parameters)
     yield response
 
 
@@ -32,7 +34,7 @@ def headers(response):
 
 @pytest.fixture(scope='function')
 def xmlschema(case):
-    xmlschema_doc = etree.parse(case.xsd)
+    xmlschema_doc = etree.parse(case.expected_body)
     xmlschema = etree.XMLSchema(xmlschema_doc)
     yield xmlschema
 

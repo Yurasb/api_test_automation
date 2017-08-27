@@ -5,16 +5,15 @@ class Case(object):
     def __init__(
             self, parameters, status_code, headers, body
     ):
-        self.url_parametes = parameters
+        self.url_parameters = parameters
         self.expected_status_code = status_code
         self.expected_headers = headers
         self.expected_body = body
 
 
 valid_case = Case(
-    parameters=u'/map?bbox='
-               u'27.61649608612061,53.85379229563698,'
-               u'27.671985626220707,53.886459293813054',
+    parameters=u'/map?bbox=31.17268681526184,52.56401245027321,'
+               u'31.17742896080017,52.56634718820995',
     status_code=200,
     headers={
         'Cache-Control': 'private, max-age=0, must-revalidate',
@@ -27,7 +26,7 @@ valid_case = Case(
         'Content-Encoding': 'gzip',
         'Date': 'Sun, 20 Aug 2017 20:29:37 GMT'
     },
-    xsd=open('../test_cases/valid_case.xsd', 'r')
+    body=open('../test_cases/valid_case.xsd', 'r')
 )
 
 invalid_case_1 = Case(
