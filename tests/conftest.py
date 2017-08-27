@@ -31,6 +31,19 @@ def headers(response):
 
 
 @pytest.fixture(scope='function')
+def xmlschema(case):
+    xmlschema_doc = etree.parse(case.xsd)
+    xmlschema = etree.XMLSchema(xmlschema_doc)
+    yield xmlschema
+
+
+@pytest.fixture(scope='function')
+def doc(response):
+    xml = StringIO(response.content)
+    doc = etree.parse(xml)
+    yield doc
+
+
 def body(response):
     yield response.content
 
