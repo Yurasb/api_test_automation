@@ -17,7 +17,7 @@ def case(request):
 
 @pytest.fixture(scope='function')
 def response(case):
-    response = requests.get(url + case.url_parametes)
+    response = requests.get(url + case.url_parameters)
     yield response
 
 

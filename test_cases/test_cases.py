@@ -5,7 +5,7 @@ class Case(object):
     def __init__(
             self, url_params, status_code, headers, xsd
     ):
-        self.url_parametes = url_params
+        self.url_parameters = url_params
         self.exp_status_code = status_code
         self.exp_headers = headers
         self.xsd = xsd
