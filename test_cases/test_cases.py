@@ -3,12 +3,12 @@
 
 class Case(object):
     def __init__(
-            self, url_params, status_code, headers, xsd
+            self, url_params, status_code, headers, xsd_path
     ):
         self.url_parameters = url_params
         self.exp_status_code = status_code
         self.exp_headers = headers
-        self.xsd = xsd
+        self.xsd = open(xsd_path, 'r')
 
 
 valid_case = Case(
@@ -26,5 +26,5 @@ valid_case = Case(
         'Content-Encoding': 'gzip',
         'Date': 'Sun, 20 Aug 2017 20:29:37 GMT'
     },
-    xsd=open('../test_cases/valid_case.xsd', 'r')
+    xsd_path='../test_cases/valid_case.xsd'
 )
