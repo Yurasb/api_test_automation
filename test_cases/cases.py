@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from main import url
+from test_cases import get_xmlschema
 
 
 class Case(object):
@@ -8,7 +10,13 @@ class Case(object):
         self.url_parameters = url_params
         self.exp_status_code = status_code
         self.exp_headers = headers
-        self.xsd = open(xsd_path, 'r')
+        self.xsd = get_xmlschema(xsd_path)
+        self.api_url = self.get_api_url
+
+    @property
+    def get_api_url(self):
+        api_url = '{}{}'.format(url, self.url_parameters)
+        return api_url
 
 
 valid_case = Case(
