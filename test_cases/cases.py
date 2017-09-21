@@ -11,10 +11,10 @@ class Case(object):
         self.exp_status_code = status_code
         self.exp_headers = headers
         self.xsd = get_xmlschema(xsd_path)
-        self.api_url = self.get_api_url
+        self.api_url = self.test_url
 
     @property
-    def get_api_url(self):
+    def test_url(self):
         api_url = '{}{}'.format(url, self.url_parameters)
         return api_url
 
