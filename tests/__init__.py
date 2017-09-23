@@ -3,7 +3,7 @@ from StringIO import StringIO
 from lxml import etree
 
 
-def get_doc(content):
+def parse_body(content):
     xml = StringIO(content)
     doc = etree.parse(xml)
     return doc

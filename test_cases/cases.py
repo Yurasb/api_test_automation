@@ -10,7 +10,7 @@ class Case(object):
         self.url_parameters = url_params
         self.exp_status_code = status_code
         self.exp_headers = headers
-        self.xsd = get_xmlschema(xsd_path)
+        self.xml_schema = get_xmlschema(xsd_path)
         self.api_url = self.test_url
 
     @property
