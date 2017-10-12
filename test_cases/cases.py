@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from main import url
 from test_cases import get_xmlschema
 
