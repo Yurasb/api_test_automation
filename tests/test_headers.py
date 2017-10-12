@@ -1,55 +1,47 @@
 # -*- coding: utf-8 -*-
+import requests
 
 
-def test_id(headers):
-    assert 'X-GitHub-Request-Id' in headers
+def test_date(get_case):
+    response = requests.get(get_case.api_url)
+    assert 'Date' in response.headers
 
 
-def test_date(headers):
-    assert 'Date' in headers
-
-
-def test_expires(headers):
-    assert 'Expires' in headers
-
-
-def test_content_encoding(headers, case):
+def test_content_encoding(get_case):
+    response = requests.get(get_case.api_url)
     assert (
-        headers['Content-Encoding'] ==
-        case.expected_headers['Content-Encoding']
+        response.headers['Content-Encoding'] ==
+        get_case.exp_headers['Content-Encoding']
     )
 
 
-def test_cache_control(headers, case):
+def test_cache_control(get_case):
+    response = requests.get(get_case.api_url)
     assert (
-        headers['Cache-Control'] ==
-        case.expected_headers['Cache-Control']
+        response.headers['Cache-Control'] ==
+        get_case.exp_headers['Cache-Control']
     )
 
 
-def test_server(headers, case):
+def test_server(get_case):
+    response = requests.get(get_case.api_url)
     assert (
-        headers['Server'] ==
-        case.expected_headers['Server']
+        response.headers['Server'] ==
+        get_case.exp_headers['Server']
     )
 
 
-def test_content_type(headers, case):
+def test_content_type(get_case):
+    response = requests.get(get_case.api_url)
     assert (
-        headers['Content-Type'] ==
-        case.expected_headers['Content-Type']
+        response.headers['Content-Type'] ==
+        get_case.exp_headers['Content-Type']
     )
 
 
-def test_access_control(headers, case):
+def test_transfer_encoding(get_case):
+    response = requests.get(get_case.api_url)
     assert (
-        headers['Access-Control-Allow-Origin'] ==
-        case.expected_headers['Access-Control-Allow-Origin']
-    )
-
-
-def test_transfer_encoding(headers, case):
-    assert (
-        headers['Transfer-Encoding'] ==
-        case.expected_headers['Transfer-Encoding']
+        response.headers['Transfer-Encoding'] ==
+        get_case.exp_headers['Transfer-Encoding']
     )
