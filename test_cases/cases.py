@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from main import url
-from test_cases import get_xmlschema
+from test_cases import url, get_xmlschema
 
 
 class Case(object):
@@ -33,7 +32,6 @@ valid_case_with_objects = Case(
         'Server': 'Apache/2.4.18 (Ubuntu)',
         'Connection': 'Keep-Alive',
         'Content-Encoding': 'gzip',
-        'Date': 'Sun, 20 Aug 2017 20:29:37 GMT'
     },
     xsd_path='../test_cases/valid_case_1.xsd'
 )
@@ -50,10 +48,84 @@ valid_case_without_objects = Case(
         'Server': 'Apache/2.4.18 (Ubuntu)',
         'Connection': 'Keep-Alive',
         'Cache-Control': 'private, max-age=0, must-revalidate',
-        'Date': 'Thu, 21 Sep 2017 19:52:36 GMT',
         'Content-Type': 'text/xml; charset=utf-8'
     },
     xsd_path='../test_cases/valid_case_2.xsd'
 )
+
+# invalid_case_bbox_is_empty = Case(
+#     url_params=u'',
+#     status_code=400,
+#     headers={
+#         'Content-Length': '88',
+#         'Cache-Control': 'no-cache',
+#         'Server': 'Apache/2.4.18 (Ubuntu)',
+#         'Connection': 'close',
+#         'Error': 'The parameter bbox is required, and must be '
+#                  'of the form min_lon,min_lat,max_lon,max_lat.',
+#         'Content-Type': 'text/plain; charset=utf-8'
+#     }
+# )
+#
+# invalid_case_too_many_nodes = Case(
+#     url_params=u'27.,53.85379229563698,'
+#                u'27.671985626220707,53.886459293813054',
+#     status_code=400,
+#     headers={
+#         'Content-Length': '95',
+#         'Content-Disposition': 'attachment; filename="map.osm"',
+#         'Cache-Control': 'no-cache',
+#         'Server': 'Apache/2.4.18 (Ubuntu)',
+#         'Connection': 'close',
+#         'Error': 'You requested too many nodes (limit is 50000).'
+#                  ' Either request a smaller area, or use planet.osm',
+#         'Content-Type': 'text/plain; charset=utf-8'
+#     }
+# )
+#
+# invalid_case_wrong_param_1 = Case(
+#     url_params=u'100.61649608612061,53.85379229563698,'
+#                u'27.671985626220707,53.886459293813054',
+#     status_code=400,
+#     headers={
+#         'Content-Length': '118',
+#         'Cache-Control': 'no-cache',
+#         'Server': 'Apache/2.4.18 (Ubuntu)',
+#         'Connection': 'close',
+#         'Error': 'The latitudes must be between -90 and 90,'
+#                  ' longitudes between -180 and 180 and the minima must be less than the maxima.',
+#         'Content-Type': 'text/plain; charset=utf-8'
+#     }
+# )
+#
+# invalid_case_wrong_param_2 = Case(
+#     url_params=u'27.61649608612061,53.85379229563698,'
+#                u'27.671985626220707,52.886459293813054',
+#     status_code=400,
+#     headers={
+#         'Content-Length': '118',
+#         'Cache-Control': 'no-cache',
+#         'Server': 'Apache/2.4.18 (Ubuntu)',
+#         'Connection': 'close',
+#         'Error': 'The latitudes must be between -90 and 90,'
+#                  ' longitudes between -180 and 180 and the minima must be less than the maxima.',
+#         'Content-Type': 'text/plain; charset=utf-8'
+#     }
+# )
+#
+# invalid_case_bbox_size_overhead = Case(
+#     url_params=u'13.359375,-81.82379431564337,'
+#                u'16.875,83.97925949886205',
+#     status_code=400,
+#     headers={
+#         'Content-Length': '111',
+#         'Cache-Control': 'no-cache',
+#         'Server': 'Apache/2.4.18 (Ubuntu)',
+#         'Connection': 'close',
+#         'Error': 'The maximum bbox size is 0.25, and your request was too large.'
+#                  ' Either request a smaller area, or use planet.osm',
+#         'Content-Type': 'text/plain; charset=utf-8'
+#     }
+# )
 
 test_cases = [valid_case_with_objects, valid_case_without_objects]
