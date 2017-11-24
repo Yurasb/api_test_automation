@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from test_cases import url, get_xmlschema
+from test_cases import get_xmlschema
 
 
 class Case(object):
@@ -11,12 +11,6 @@ class Case(object):
         self.exp_status_code = status_code
         self.exp_headers = headers
         self.xml_schema = get_xmlschema(xsd_path)
-        self.api_url = self.test_url
-
-    @property
-    def test_url(self):
-        api_url = '{}{}'.format(url, self.url_parameters)
-        return api_url
 
 
 valid_case_with_objects = Case(
@@ -33,7 +27,7 @@ valid_case_with_objects = Case(
         'Connection': 'Keep-Alive',
         'Content-Encoding': 'gzip',
     },
-    xsd_path='../test_cases/valid_case_1.xsd'
+    xsd_path='./test_cases/valid_case_1.xsd'
 )
 
 valid_case_without_objects = Case(
@@ -50,7 +44,7 @@ valid_case_without_objects = Case(
         'Cache-Control': 'private, max-age=0, must-revalidate',
         'Content-Type': 'text/xml; charset=utf-8'
     },
-    xsd_path='../test_cases/valid_case_2.xsd'
+    xsd_path='./test_cases/valid_case_2.xsd'
 )
 
 # invalid_case_bbox_is_empty = Case(
