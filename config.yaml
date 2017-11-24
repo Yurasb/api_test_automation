@@ -1,4 +1,5 @@
-protocol: http
-hostname: www.openstreetmap.org
-api_version: '0.6'
-port: '80'
+HTTP:
+    protocol: http
+    hostname: www.openstreetmap.org
+    api_version: '0.6'
+    port: '80'

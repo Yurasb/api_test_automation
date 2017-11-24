@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from lxml import etree
-from main import configuration
-
-
-url = '{protocol}://{hostname}:{port}/api/{api_version}/map?bbox='.format(**configuration)
 
 
 def get_xmlschema(xsd_path):
